@@ -5,7 +5,7 @@ proc solve(path: string): (int, int) =
 
   for answer in answers.split("\n\n"):
     var groupAnswer = replace(answer, "\n", "")
-    var letterFrequencies = toCountTable(group_answer)
+    var letterFrequencies = toCountTable(groupAnswer)
 
     result[0] += len(letterFrequencies)
     
