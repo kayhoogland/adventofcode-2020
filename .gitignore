@@ -1,0 +1,4 @@
+*
+# Unignore all with extensions
+!*.nim
+!.gitignore
