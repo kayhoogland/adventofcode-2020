@@ -40,7 +40,9 @@ proc solve(input: string): (int, int) =
 
   var prev: int
   for s in seats:
-    if s - prev == 2: result[1] = s - 1
+    if s - prev == 2: 
+      result[1] = s - 1
+      break
     prev = s
 
 echo solve("./data/day5.txt")
