@@ -1,5 +1,4 @@
-import sequtils
-import algorithm
+import sequtils, sets
 
 proc row(input: string): int =
   var
@@ -31,19 +30,11 @@ proc seat(input: string): int =
 
   return row * 8 + column
 
-proc solve(input: string): (int, int) =
+proc solve(input: string): (int, HashSet[int]) =
   var seats: seq[int]
   for line in input.lines:
     seats.add(seat(line))
-  seats.sort()
-  result[0] = seats[^1]
-
-  var prev: int
-  for s in seats:
-    if s - prev == 2: 
-      result[1] = s - 1
-      break
-    prev = s
+  result[0] = seats.max
+  result[1] = (seats.min..seats.max).toSeq.toHashSet - seats.toHashSet
 
 echo solve("./data/day5.txt")
-
