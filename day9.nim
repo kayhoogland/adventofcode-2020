@@ -1,4 +1,4 @@
-import strutils, sequtils
+import strutils, math
 
 proc sum_in_prev(r: seq[int], n: int): bool =
   result = false
@@ -21,10 +21,10 @@ proc part2(ns: seq[int], pos: int): int =
     for s in 1..<arr.len():
       let 
         window = arr[0..s]
-        sum = window.foldl(a+b, 0)
+        sum = window.sum
       if sum > num: break
       if sum == num:
-        return window[minIndex(window)] + window[maxIndex(window)] 
+        return window.min + window.max
 
   
 proc solve(input: string): (int, int) =
