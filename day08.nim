@@ -7,7 +7,7 @@ proc create_rule_list(input: string): RuleList =
     var
       step: string
       value: int
-    if scanf(line, "$w $i", step, value): 
+    if scanf(line, "$w $i", step, value):
       result.add((step, value))
   
 proc part1(ruleList: RuleList): (bool, int) =
@@ -15,7 +15,7 @@ proc part1(ruleList: RuleList): (bool, int) =
     pos: int
     seen: seq[int]
   
-  while true and pos < ruleList.len():
+  while true and pos < ruleList.len:
     if pos in seen:
       return (true, result[1])
     seen.add(pos)
@@ -31,7 +31,7 @@ proc part1(ruleList: RuleList): (bool, int) =
 
 proc part2(ruleList: RuleList): int =
   var ruleList = ruleList
-  for i in 0..<ruleList.len():
+  for i in 0..<ruleList.len:
     var loop: bool
     let oldStep = ruleList[i].step
     case ruleList[i].step:
@@ -40,7 +40,7 @@ proc part2(ruleList: RuleList): int =
       of "nop":
         ruleList[i].step = "jmp"
       else: continue
-    (loop, result) = part1(ruleList) 
+    (loop, result) = part1(ruleList)
     if not loop: return
     ruleList[i].step = oldStep
     

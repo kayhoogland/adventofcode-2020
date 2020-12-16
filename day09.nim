@@ -4,21 +4,21 @@ proc sum_in_prev(r: seq[int], n: int): bool =
   result = false
   for i in 0..24:
     if r[i] > n: continue
-    for j in i+1..24: 
-      if r[i] + r[j] == n: 
+    for j in i+1..24:
+      if r[i] + r[j] == n:
         return true
 
 proc part1(ns: seq[int]): (int, int) =
-  for i in 25..<ns.len():
+  for i in 25..<ns.len:
     let window = ns[i-25..<i]
-    if not sum_in_prev(window, ns[i]): 
+    if not sum_in_prev(window, ns[i]):
       return (ns[i], i)
 
 proc part2(ns: seq[int], pos: int): int =
   let num = ns[pos]
   for i in 0..<pos:
     let arr = ns[i..<pos]
-    for s in 1..<arr.len():
+    for s in 1..<arr.len:
       let 
         window = arr[0..s]
         sum = window.sum

@@ -14,7 +14,7 @@ proc part2(bs: seq[int]): int =
     time = bs[0]
     step = 1
 
-  for i in 0..<bs.len():
+  for i in 0..<bs.len:
     while (time+i) mod bs[i] != 0:
       time += step
     step *= bs[i]

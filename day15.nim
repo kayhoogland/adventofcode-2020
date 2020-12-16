@@ -3,7 +3,7 @@ import tables
 proc solver(input: seq[int], limit: int): int =
   var table: Table[int, int]
 
-  for i in 0..<input.len():
+  for i in 0..<input.len:
     table[input[i]] = i+1
 
   for n in input.len+1..<limit:

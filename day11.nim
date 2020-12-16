@@ -15,7 +15,7 @@ proc create_layout(input: string): Layout =
 
 proc seat(layout: Layout, row: int, col: int): char =
     let seats = layout.getOrDefault(row, "")
-    if seats.len() == 0 or col notin 0..<seats.len():
+    if seats.len == 0 or col notin 0..<seats.len:
       return '-'
     else:
       return seats[col]
@@ -34,8 +34,8 @@ proc part1(layout: Layout): int =
 
   while true:
     var changeCount: int
-    for r in 0..<oldLayout.len():
-      for c in 0..<oldLayout[r].len():
+    for r in 0..<oldLayout.len:
+      for c in 0..<oldLayout[r].len:
         let
           counts = oldLayout.count_adjacent(r, c)
           seat = oldLayout.seat(r, c)
@@ -84,8 +84,8 @@ proc part2(layout: Layout): int =
 
   while true:
     var changeCount: int
-    for r in 0..<oldLayout.len():
-      for c in 0..<oldLayout[r].len():
+    for r in 0..<oldLayout.len:
+      for c in 0..<oldLayout[r].len:
         let
           counts = oldLayout.count_adjacent_2(r, c)
           seat = oldLayout.seat(r, c)
@@ -105,7 +105,7 @@ proc part2(layout: Layout): int =
 
 proc solve(input: string): (int, int) =
   let layout = create_layout(input)
-  result[0] = part1(layout) 
+  result[0] = part1(layout)
   result[1] = part2(layout)
 
 

@@ -11,7 +11,7 @@ proc combinations(mask: string): seq[int] =
       j: int
     let fillValues = c.toBin(countX)
 
-    for i in 0..<mask.len():
+    for i in 0..<mask.len:
       if maskCopy[i] == 'X':
         maskCopy[i] = fillValues[j]
         inc j
