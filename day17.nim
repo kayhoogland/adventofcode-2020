@@ -25,7 +25,7 @@ proc count_active_neighbors(c: Coordinate, lookup: Lookup, useW: bool): (int, Co
     for y in -1..1:
       for z in -1..1:
         for w in rangeW:
-          if x == 0 and y == 0 and z == 0 and w==0: continue
+          if (x, y, z, w) == (0, 0, 0, 0): continue
           let n = (c[0]+x, c[1]+y, c[2]+z, c[3]+w)
           if not lookup.hasKey(n):
             result[1].add(n)
